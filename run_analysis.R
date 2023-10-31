@@ -23,7 +23,7 @@ combined_data <- rbind(
 )
 
 
-# Extract the data features and set column names
+# Extract the data features to set column names
 
 features <- fread(file.path(dir_path, "UCI HAR Dataset/features.txt"),
                   col.names = c("index", "featureNames"))
@@ -34,6 +34,8 @@ head(features,10) ## Check for first 10 features
 required_features <- grep("(mean|std)\\(\\)", features[, featureNames])
 required_featuresNames <- gsub("[()]", "", 
                                features[required_features, featureNames])
+
+## Extract measurement on the mean and standard deviation for each measurement.
 named_data <- combined_data[, ..required_features]
 data.table::setnames(named_data, colnames(named_data), required_featuresNames)
 
@@ -74,10 +76,12 @@ tidy_data$Activity <- factor(tidy_data$Activity,
 # Group the data  for each activity and subject and calculate the average
 
 ## Check whether the SubjectNumber variable is factor
+
 tidy_data$SubjectNumber <- as.factor(tidy_data$SubjectNumber)
 
 ## Now group data by SubjectNumber and Activity and calculate average
+
 averaged_data <- tidy_data %>%
         group_by(SubjectNumber, Activity) %>%
-        summarise_all(funs(mean=mean(., na.rm = TRUE)))
+        summarise_all(list(mean = ~ mean(., na.rm = TRUE)))
 names(averaged_data) <- sub("_mean$", "", names(averaged_data))
