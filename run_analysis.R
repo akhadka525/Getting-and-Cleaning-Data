@@ -9,6 +9,7 @@ if (any(installed_packages == FALSE)) {
 invisible(lapply(packages, library, character.only = TRUE))
 
 ## Load the data for the project work
+
 dir_path <- getwd() ## Get the path of the current/working directory
 data_url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(url = data_url, file.path(dir_path, "UCI_HAR.zip"))
@@ -23,7 +24,7 @@ combined_data <- rbind(
 )
 
 
-# Extract the data features to set column names
+## Extract the data features to set column names
 
 features <- fread(file.path(dir_path, "UCI HAR Dataset/features.txt"),
                   col.names = c("index", "featureNames"))
@@ -73,7 +74,7 @@ tidy_data$Activity <- factor(tidy_data$Activity,
                              labels = activityLabels$activityName)
 
 
-# Group the data  for each activity and subject and calculate the average
+## Group the data  for each activity and subject and calculate the average
 
 ## Check whether the SubjectNumber variable is factor
 
