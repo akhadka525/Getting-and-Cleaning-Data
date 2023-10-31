@@ -1,7 +1,7 @@
 # Peer-graded Assignment: Getting and Cleaning Data Course Project
 
 ## Description:
-Additional information on data, variables, and transformations used/performed in R script [run_analysis.R] to clean up the collected data and prepare the tidy data.
+Additional information on data, variables, and transformations used/performed in R script [run_analysis.R](https://github.com/akhadka525/Getting-and-Cleaning-Data/blob/main/run_analysis.R) to clean up the collected data and prepare the tidy data.
 
 ## Data Source:
 The data set used in this analysis and its description can be found in:
@@ -36,5 +36,6 @@ For each record it is provided:
 
 ## What each data represents in [run_analysis.R]
 - combined_data: Merged data set of training and test sets
+- named_data: Data labelled with descriptive variable names with measurements on mean and standard deviations only 
 - tidy data: combined data set well labelled with descriptive variable names
 - averaged_data: Tidy data set formed by averaging each variable for each activity and each subject
