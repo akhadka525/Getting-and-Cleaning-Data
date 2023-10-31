@@ -35,14 +35,14 @@ For each record it is provided with the following attributes:
 - `train(test)/Inertial Signals/body_gyro_x_train(test).txt`: The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.
 
 ## What each data represents in [run_analysis.R](https://github.com/akhadka525/Getting-and-Cleaning-Data/blob/main/run_analysis.R):
-- combined_data: Merged data set of training and test sets
-- named_data: Data labelled with descriptive variable names with measurements on mean and standard deviations only 
-- tidy_data: combined data set well labelled with descriptive variable names
-- averaged_data: Tidy data set formed by averaging each variable for each activity and each subject
+- `combined_data`: Merged data set of training and test sets
+- `named_data`: Data labelled with descriptive variable names with measurements on mean and standard deviations only 
+- `tidy_data`: combined data set well labelled with descriptive variable names
+- `averaged_data`: Tidy data set formed by averaging each variable for each activity and each subject
 
 ## Functions used to transform the data in [run_analysis.R](https://github.com/akhadka525/Getting-and-Cleaning-Data/blob/main/run_analysis.R):
 - `rbind/cbind()` : Bind the two or more two sets of data row wise or column-wise.
 - `fread()` : Read and load data from various file formats including text files. It is efficient and fast in reading large data sets.
 - `group_by()` : Groups the data frame by variables and makes the data tidy
 - `summarise_all()` : Perform calculation of all numeric columns within each group. In our case we specify for the mean calculation.
--` %>%` : Operator for chaining operations together.
+- ` %>%` : Operator for chaining operations together.
