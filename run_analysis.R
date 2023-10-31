@@ -86,3 +86,5 @@ averaged_data <- tidy_data %>%
         group_by(SubjectNumber, Activity) %>%
         summarise_all(list(mean = ~ mean(., na.rm = TRUE)))
 names(averaged_data) <- sub("_mean$", "", names(averaged_data))
+write.table(averaged_data, file = "averaged_tidy_data.txt", sep = "\t",
+            row.names = FALSE, quote = FALSE)
